@@ -21,6 +21,9 @@ do {
     Write-Host "Checking compliance status for $hostname"
     Write-Host "Device type: $deviceType"
 
+    # Convert hostname to uppercase
+    $hostname = $hostname.ToUpper()
+
     <# Connect to SCCM WMI Namespace
     $SCCMWmiNamespace = "\\$SiteServer\root\SMS\site_$SiteCode"
     $SCCM = Get-WmiObject -Namespace $SCCMWmiNamespace -Class SMS_R_System -Filter "Name='$hostname'"
